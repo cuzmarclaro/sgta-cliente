@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hello Client SGTA</title>
+<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/main.css" rel="stylesheet">
+<style>
+@import
+	url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@700&display=swap')
+	;
+</style>
+<script
+	src="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.all.min.js"></script>
+<script src="/webjars/jquery/jquery.min.js"></script>
+<script src="/webjars/sockjs-client/sockjs.min.js"></script>
+<script src="/webjars/stomp-websocket/stomp.min.js"></script>
+<script	src="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.all.min.js"></script>
+</head>
+<body>
+	<noscript>
+		<h4 style="color: #ff0000">
+			Parece que su navegador no es compatible con ¡Javascript!<br>
+			Websocket se basa en la habilitación de Javascript.<br> Por
+			favor habilite Javascript y vuelva a cargar esta página!
+		</h4>
+	</noscript>
+	<div id="main-content" class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<form class="form-center">
+					<div class="form-group">
+						<label for="connect">Conectar con SGTA:</label>
+						<br>
+						<button id="connect" class="btn btn-light" type="submit">Conectar</button>
+						<button id="disconnect" class="btn btn-light" type="submit"
+							disabled="disabled">Desconectar</button>
+					</div>
+					<div class="form-group">
+						<label for="email">Email</label> <input id="email"
+							class="form-control" placeholder="ej: maria@ejemplo.com">
+					</div>
+					<div class="form-group">
+						<button id="send" class="btn btn-light" type="submit"
+							disabled="disabled">Enviar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<!-- conteo regresivo -->
+		<div id="alertas" class="card text-center">
+			<div class="card-header"></div>
+			<div id="seccion-alerta" class="card-body">
+				<h2 id="conteoRegresivo" class="card-title"></h2>
+				<p id="alerta" class="card-text"></p>
+			</div>
+			<div class="card-footer text-muted"></div>
+		</div>
+		<br>
+
+		<!-- Datos cliente -->
+		<div id="conversation" class="card text-center">
+			<div class="card-header"></div>
+			<div class="card-body">
+				<h5 class="card-title">
+					<span id="turno"></span>
+				</h5>
+				<p class="card-text">
+					<span id="contadorLlamados"></span>
+				</p>
+				<p class="card-text">
+					<span id="tiempoEstimadoParaAtencion"></span>
+				</p>
+			</div>
+			<div  class="card-footer text-muted">
+				© <a id = "footer"> </a><a class="text-reset fw-bold">SGTA</a>
+			</div>
+		</div>
+
+	</div>
+	<script src="/app.js"></script>
+</body>
+</html>
